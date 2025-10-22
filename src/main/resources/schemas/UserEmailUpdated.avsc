@@ -1,0 +1,19 @@
+{
+  "namespace": "com.davinchicoder.events.user.validations",
+  "type": "record",
+  "name": "UserEmailUpdated",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ]
+}

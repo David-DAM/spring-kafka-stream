@@ -1,0 +1,75 @@
+spring:
+  application:
+    name: spring-kafka-stream
+  kafka:
+    properties:
+      spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+    #      spring.deserializer.key.function: com.davinchicoder.springkafkastream.FailedDeserializationFunction
+    #      spring.deserializer.value.function: com.davinchicoder.springkafkastream.FailedDeserializationFunction
+    listener:
+      type: single
+      missing-topics-fatal: false
+      ack-mode: record
+    consumer:
+      properties:
+        specific.avro.reader: true
+        use.latest.version: true
+        auto.register.schemas: true
+        key.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+        value.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+        schema.registry.url: http://localhost:8081
+    producer:
+      properties:
+        acks: all
+        retry.backoff.ms: 500
+        request.timeout.ms: 30000
+        auto.register.schemas: true
+        use.latest.version: true
+        enable.idempotence: true
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+        schema.registry.url: http://localhost:8081
+  cloud:
+    function:
+      definition: userCreatedConsumer;userVerificationRequestedProducer
+    stream:
+      bindings:
+        userCreatedConsumer-in-0:
+          binder: kafka-avro
+          destination: com.davinchicoder.events.user.v1.created
+          group: user-group.events-in-0
+          content-type: avro/bytes
+          consumer:
+            partitioned: true
+            concurrency: 1
+            maxAttempts: 1
+            useNativeDecoding: true
+        userVerificationRequestedProducer-out-0:
+          binder: kafka-avro
+          destination: com.davinchicoder.events.user.validations.v1.verification.requested
+          content-type: avro/bytes
+          producer:
+            partitionCount: 2
+            useNativeEncoding: true
+      default:
+        binder: kafka-avro
+      binders:
+        kafka-avro:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  default:
+                    producer:
+                      useNativeEncoding: true
+                    consumer:
+                      useNativeEncoding: true
+                  kafka:
+                    binder:
+                      brokers: localhost:9092
+
+
+
+

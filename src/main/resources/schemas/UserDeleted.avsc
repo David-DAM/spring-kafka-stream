@@ -1,0 +1,15 @@
+{
+  "namespace": "com.davinchicoder.events.user",
+  "type": "record",
+  "name": "UserDeleted",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "type": "long"
+    }
+  ]
+}
