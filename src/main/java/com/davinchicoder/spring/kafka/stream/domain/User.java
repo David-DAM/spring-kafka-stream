@@ -1,4 +1,4 @@
-package com.davinchicoder.springkafkastream.domain;
+package com.davinchicoder.spring.kafka.stream.domain;
 
 import lombok.Builder;
 import lombok.Data;

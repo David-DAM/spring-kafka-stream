@@ -1,8 +1,8 @@
-package com.davinchicoder.springkafkastream.IT.helper;
+package com.davinchicoder.spring.kafka.stream.IT.helper;
 
 
-import com.davinchicoder.springkafkastream.domain.User;
-import com.davinchicoder.springkafkastream.infrastructure.repository.UserMemoryRepository;
+import com.davinchicoder.spring.kafka.stream.domain.User;
+import com.davinchicoder.spring.kafka.stream.infrastructure.repository.UserMemoryRepository;
 import org.awaitility.Durations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

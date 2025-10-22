@@ -1,4 +1,4 @@
-package com.davinchicoder.springkafkastream.infrastructure.event.config;
+package com.davinchicoder.spring.kafka.stream.infrastructure.event.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

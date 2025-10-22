@@ -1,7 +1,7 @@
-package com.davinchicoder.springkafkastream.infrastructure.event.producer;
+package com.davinchicoder.spring.kafka.stream.infrastructure.event.producer;
 
 import com.davinchicoder.events.user.validations.UserVerificationRequested;
-import com.davinchicoder.springkafkastream.domain.User;
+import com.davinchicoder.spring.kafka.stream.domain.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.stream.function.StreamBridge;

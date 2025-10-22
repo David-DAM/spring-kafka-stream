@@ -1,9 +1,9 @@
-package com.davinchicoder.springkafkastream.infrastructure.event.consumer;
+package com.davinchicoder.spring.kafka.stream.infrastructure.event.consumer;
 
 import com.davinchicoder.events.user.UserCreated;
-import com.davinchicoder.springkafkastream.domain.User;
-import com.davinchicoder.springkafkastream.infrastructure.event.producer.UserVerificationRequestedProducer;
-import com.davinchicoder.springkafkastream.infrastructure.repository.UserMemoryRepository;
+import com.davinchicoder.spring.kafka.stream.domain.User;
+import com.davinchicoder.spring.kafka.stream.infrastructure.event.producer.UserVerificationRequestedProducer;
+import com.davinchicoder.spring.kafka.stream.infrastructure.repository.UserMemoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;

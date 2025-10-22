@@ -1,11 +1,11 @@
-package com.davinchicoder.springkafkastream.IT;
+package com.davinchicoder.spring.kafka.stream.IT;
 
 
 import com.davinchicoder.events.user.UserCreated;
 import com.davinchicoder.events.user.validations.UserVerificationRequested;
-import com.davinchicoder.springkafkastream.IT.helper.DatabaseHelper;
-import com.davinchicoder.springkafkastream.IT.helper.KafkaHelper;
-import com.davinchicoder.springkafkastream.domain.User;
+import com.davinchicoder.spring.kafka.stream.IT.helper.DatabaseHelper;
+import com.davinchicoder.spring.kafka.stream.IT.helper.KafkaHelper;
+import com.davinchicoder.spring.kafka.stream.domain.User;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.specific.SpecificRecord;

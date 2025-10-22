@@ -1,4 +1,4 @@
-package com.davinchicoder.springkafkastream.infrastructure.event;
+package com.davinchicoder.spring.kafka.stream.infrastructure.event;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

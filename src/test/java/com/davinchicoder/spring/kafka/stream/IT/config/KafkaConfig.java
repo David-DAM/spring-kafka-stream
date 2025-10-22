@@ -1,4 +1,4 @@
-package com.davinchicoder.springkafkastream.IT.config;
+package com.davinchicoder.spring.kafka.stream.IT.config;
 
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;

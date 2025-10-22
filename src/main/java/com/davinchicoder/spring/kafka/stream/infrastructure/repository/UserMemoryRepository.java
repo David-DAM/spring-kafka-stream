@@ -1,6 +1,6 @@
-package com.davinchicoder.springkafkastream.infrastructure.repository;
+package com.davinchicoder.spring.kafka.stream.infrastructure.repository;
 
-import com.davinchicoder.springkafkastream.domain.User;
+import com.davinchicoder.spring.kafka.stream.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 

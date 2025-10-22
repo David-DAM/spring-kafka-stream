@@ -1,4 +1,4 @@
-package com.davinchicoder.springkafkastream.IT.helper;
+package com.davinchicoder.spring.kafka.stream.IT.helper;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.specific.SpecificRecord;

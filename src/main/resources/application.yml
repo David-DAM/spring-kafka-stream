@@ -5,8 +5,8 @@ spring:
     properties:
       spring.deserializer.value.delegate.class: io.confluent.kafka.serializers.KafkaAvroDeserializer
       spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-    #      spring.deserializer.key.function: com.davinchicoder.springkafkastream.FailedDeserializationFunction
-    #      spring.deserializer.value.function: com.davinchicoder.springkafkastream.FailedDeserializationFunction
+      spring.deserializer.key.function: com.davinchicoder.spring.kafka.stream.infrastructure.event.FailedDeserializationFunction
+      spring.deserializer.value.function: com.davinchicoder.spring.kafka.stream.infrastructure.event.FailedDeserializationFunction
     listener:
       type: single
       missing-topics-fatal: false
@@ -69,7 +69,3 @@ spring:
                   kafka:
                     binder:
                       brokers: localhost:9092
-
-
-
-
