@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 public class User {
 
     private String id;
-    private String name;
+    private String firstname;
+    private String lastname;
     private String email;
-    private String phone;
-    private String address;
+    private String role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;

@@ -70,7 +70,7 @@ public class UserIT {
         User user = databaseHelper.findByIdAndCondition(userId, Objects::nonNull);
 
         assertNotNull(user);
-        assertEquals(event.getFirstname(), user.getName());
+        assertEquals(event.getFirstname(), user.getFirstname());
 
         ConsumerRecords<String, SpecificRecord> userValidationRecords = kafkaHelper.getUserVerificationRequestedEvent();
 

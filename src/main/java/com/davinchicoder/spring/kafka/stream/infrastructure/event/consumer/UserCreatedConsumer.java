@@ -1,16 +1,15 @@
 package com.davinchicoder.spring.kafka.stream.infrastructure.event.consumer;
 
 import com.davinchicoder.events.user.UserCreated;
+import com.davinchicoder.spring.kafka.stream.application.UserService;
 import com.davinchicoder.spring.kafka.stream.domain.User;
-import com.davinchicoder.spring.kafka.stream.infrastructure.event.producer.UserVerificationRequestedProducer;
-import com.davinchicoder.spring.kafka.stream.infrastructure.repository.UserMemoryRepository;
+import com.davinchicoder.spring.kafka.stream.domain.UserEventProducer;
+import com.davinchicoder.spring.kafka.stream.infrastructure.event.mapper.UserEventMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.function.Consumer;
 
 @Slf4j
@@ -18,8 +17,9 @@ import java.util.function.Consumer;
 @Component("userCreatedConsumer")
 public class UserCreatedConsumer implements Consumer<Message<UserCreated>> {
 
-    private final UserMemoryRepository userMemoryRepository;
-    private final UserVerificationRequestedProducer userVerificationRequestedProducer;
+    private final UserService userService;
+    private final UserEventProducer userEventProducer;
+    private final UserEventMapper userEventMapper;
 
     @Override
     public void accept(Message<UserCreated> message) {
@@ -27,15 +27,10 @@ public class UserCreatedConsumer implements Consumer<Message<UserCreated>> {
 
         UserCreated event = message.getPayload();
 
-        User user = User.builder()
-                .id(event.getId())
-                .name(event.getFirstname())
-                .email(event.getEmail())
-                .createdAt(LocalDateTime.ofEpochSecond(event.getTimestamp(), 0, ZoneOffset.UTC))
-                .build();
+        User user = userEventMapper.mapToUser(event);
 
-        userMemoryRepository.save(user);
+        userService.createUser(user);
 
-        userVerificationRequestedProducer.apply(user);
+        userEventProducer.sendUserVerificationRequested(user);
     }
 }
