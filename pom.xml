@@ -13,18 +13,30 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-kafka-stream</name>
     <description>spring-kafka-stream</description>
-    <url/>
+    <url>https://github.com/DAVID-DAM/spring-kafka-stream</url>
     <licenses>
-        <license/>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/license/mit</url>
+            <distribution>repo</distribution>
+        </license>
     </licenses>
     <developers>
-        <developer/>
+        <developer>
+            <id>davinchicoder</id>
+            <name>David Jiménez Villajos</name>
+            <email>support@davinchicoder.dev</email>
+            <url>https://github.com/DAVID-DAM</url>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
     </developers>
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <connection>scm:git:git://github.com/DAVID-DAM/spring-kafka-stream.git</connection>
+        <developerConnection>scm:git:ssh://github.com:DAVID-DAM/spring-kafka-stream.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/DAVID-DAM/spring-kafka-stream</url>
     </scm>
     <properties>
         <java.version>21</java.version>
