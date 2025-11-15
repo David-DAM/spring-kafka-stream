@@ -98,8 +98,6 @@ services:
 #      timeout: 10s
 #      retries: 7
 
-
-
 networks:
   kafka:
     driver: bridge

@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 public class KafkaHelper {
 
-    private final static String validationTopic = "com.davinchicoder.events.user.validations.v1.verification.requested";
+    private final static String VALIDATION_TOPIC = "com.davinchicoder.events.user.validations.v1.verification.requested";
 
     @Autowired
     private KafkaConsumer<String, SpecificRecord> userValidationEventConsumer;
@@ -27,7 +27,7 @@ public class KafkaHelper {
     }
 
     private void suscribeToConsumerTopics() {
-        userValidationEventConsumer.subscribe(List.of(validationTopic));
+        userValidationEventConsumer.subscribe(List.of(VALIDATION_TOPIC));
     }
 
     private void cleanAllRecords() {
